@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Talk to ChatGPT",
+  "version": "0.1.0",
+  "description": "This extension converts your voice to chatGPT text and his response into speech and plays it automatically.",
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/chat"],
+      "js": ["jquery.js", "script.js"]
+    }
+  ],  
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
