@@ -269,7 +269,7 @@ function CN_InitScript() {
 	};
 	
 	// Add icon on the top right corner
-	jQuery("body").append("<span style='position: fixed; top: 8px; right: 8px; display: inline-block; background: #EEE; border: 1px solid #888; color: #888; padding: 5px; font-size: 14px; border-radius: 4px; cursor: pointer; font-weight: bold;' id='TTGPTSettings'>⚙️ TalkGPT settings</span>");
+	jQuery("body").append("<span style='position: fixed; top: 8px; right: 8px; display: inline-block; background: #EEE; border: 1px solid #888; color: #888; padding: 5px; font-size: 14px; border-radius: 4px; cursor: pointer; font-weight: bold; z-index: 1111; position: absolute;' id='TTGPTSettings'>⚙️ TalkGPT settings</span>");
 	
 	// Try and get voices
 	speechSynthesis.getVoices();
