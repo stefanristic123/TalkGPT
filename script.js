@@ -179,7 +179,7 @@ function CN_CheckNewMessages() {
 	if (currentMessageCount > CN_MESSAGE_COUNT) {
 		// New message!
 		CN_MESSAGE_COUNT = currentMessageCount;
-		CN_CURRENT_MESSAGE = jQuery(".text-base:last");
+		CN_CURRENT_MESSAGE = jQuery(".text-base:last").find(".items-start");
 		CN_CURRENT_MESSAGE_SENTENCES = []; // Reset list of parts already spoken
 		CN_CURRENT_MESSAGE_SENTENCES_NEXT_READ = 0;
 	}
@@ -230,6 +230,7 @@ function CN_SendMessage(text) {
 	jQuery("textarea").css("height", height+"px");
 
 	// Send the message, if autosend is enabled
+	jQuery("textarea").closest("div").find("button").prop("disabled", false);
 	if (CN_AUTO_SEND_AFTER_SPEAKING) {
 		jQuery("textarea").closest("div").find("button").click();
 
@@ -484,6 +485,7 @@ function CN_InitScript() {
 		"<span class='CNToggle' title='Text-to-speech (bot voice) disabled. Click to enable' style='display:none;' data-cn='speakoff'>🔇 </span>  " + // Mute
 		"<span class='CNToggle' title='Skip the message currently being read by the bot.' data-cn='skip'>⏩ </span>  " + // Skip
 		"<span class='CNToggle' title='Open settings menu to change bot voice, language, and other settings' data-cn='settings'>⚙️</span> " + // Settings
+		"<a href='https://www.buymeacoffee.com/stefanristic' target='_blank'><span class='CNToggle' title='Buy me a beer' >🍺</span> </a>" + 
 		"</span></span>");
 	
 	setTimeout(function () {
@@ -550,7 +552,7 @@ function CN_OnSettingsIconClick() {
 	rows += "<tr style='display: grid'><td style='font-size: 14px;'>Manual send word(s)</td ><td style='font-size: 14px;'><input type=text id='TTGPTSendWord' style='width: 300px; color: black; font-size: 14px; border-radius: 10px;' value='"+CN_SAY_THIS_TO_SEND+"' /></td></tr>";
 	rows += "<tr style='display: grid'><td style='font-size: 14px;'>  If 'automatic send' is disabled, you can trigger the sending of the message by saying this word (or sequence of words)</td></tr>"
 	// Prepare save/close buttons
-	var closeRow = "<tr><td colspan=2 style='text-align: center'><br /><button id='TTGPTSave' style='font-weight: bold;'>SAVE</button>&nbsp;<button id='TTGPTCancel' style='margin-left: 20px;'>CANCEL</button></td></tr>";
+	var closeRow = "<tr><td colspan=2 style='text-align: center'><br /><button id='TTGPTSave' style='font-weight: bold;'>SAVE</button>&nbsp;<button id='TTGPTCancel' style='margin-left: 20px;'>CANCEL</button><button style='margin-left: 20px;'><a href='https://www.buymeacoffee.com/stefanristic' target='_blank'><span class='CNToggle' title='Buy me a beer' style='font-weight: bold;'>BUY ME A BEER🍺</span></button></td></tr>";
 	
 	// Prepare settings table
 	var table = "<table cellpadding=6 cellspacing=0 style='margin: 30px;'>"+rows+closeRow+"</table>";

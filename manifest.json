@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Speak to ChatGPT",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "This extension converts your voice to chatGPT text and his response into speech and plays it automatically Talk to ChatGPT and Enjoy",
   "content_scripts": [
     {
